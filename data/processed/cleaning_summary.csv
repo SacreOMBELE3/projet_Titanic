@@ -1,0 +1,15 @@
+﻿Jeu,Variable,Valeurs manquantes,Manquantes (%)
+Entraînement avant,Age,177,19.87
+Entraînement avant,Fare,0,0.0
+Entraînement avant,Cabin,687,77.1
+Entraînement avant,Embarked,2,0.22
+Entraînement après,Age,0,0.0
+Entraînement après,Fare,0,0.0
+Entraînement après,Embarked,0,0.0
+Test avant,Age,86,20.57
+Test avant,Fare,1,0.24
+Test avant,Cabin,327,78.23
+Test avant,Embarked,0,0.0
+Test après,Age,0,0.0
+Test après,Fare,0,0.0
+Test après,Embarked,0,0.0

@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.joblib
+models/*
+!models/.gitkeep
+!models/submissions/
+models/submissions/*
+!models/submissions/.gitkeep
+notebook/.ipynb_checkpoints/
+.ipynb_checkpoints/

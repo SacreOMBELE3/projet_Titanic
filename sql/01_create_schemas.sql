@@ -1,0 +1,7 @@
+USE [TitanicAnalytics];
+GO
+
+IF SCHEMA_ID(N'bronze') IS NULL EXEC(N'CREATE SCHEMA [bronze]');
+IF SCHEMA_ID(N'silver') IS NULL EXEC(N'CREATE SCHEMA [silver]');
+IF SCHEMA_ID(N'gold') IS NULL EXEC(N'CREATE SCHEMA [gold]');
+GO
