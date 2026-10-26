@@ -1,11 +1,8 @@
 /*
 ====================================================================================
-                    PROJET D'ANALYSE DES DONNÉES DU TITANIC
+SCRIPT       : Création de la base de données et des schémas
 ====================================================================================
 
-SCRIPT       : Création de la base de données et des schémas
-BASE DE DONNÉES : Titanic
-SGBD         : Microsoft SQL Server
 
 DESCRIPTION
 ------------
