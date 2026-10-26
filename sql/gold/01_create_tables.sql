@@ -1,40 +1,55 @@
-USE [TitanicAnalytics];
+/*
+===============================================================================
+PROJET : TITANIC ANALYTICS
+SCRIPT : Création des vues Gold
+BASE   : Titanic
+OBJECTIF
+--------
+Exposer les données nettoyées de Silver dans la couche Gold
+pour faciliter l'analyse et la visualisation dans Power BI.
+===============================================================================
+*/
+
+USE Titanic;
 GO
 
-IF OBJECT_ID(N'gold.train_features', N'U') IS NULL
-BEGIN
-    CREATE TABLE [gold].[train_features] (
-        [PassengerId] INT NOT NULL,
-        [Survived] INT NOT NULL,
-        [Pclass] INT NULL,
-        [Sex] NVARCHAR(50) NULL,
-        [Age] FLOAT NULL,
-        [SibSp] INT NULL,
-        [Parch] INT NULL,
-        [Fare] FLOAT NULL,
-        [Embarked] NVARCHAR(50) NULL,
-        [FamilySize] FLOAT NULL,
-        [IsAlone] INT NOT NULL,
-        [Title] NVARCHAR(50) NULL,
-        [Deck] NVARCHAR(10) NULL
-    );
-END;
+/* =============================================================================
+   1. CRÉATION DU SCHÉMA GOLD
+============================================================================= */
 
-IF OBJECT_ID(N'gold.test_features', N'U') IS NULL
+IF SCHEMA_ID(N'gold') IS NULL
 BEGIN
-    CREATE TABLE [gold].[test_features] (
-        [PassengerId] INT NOT NULL,
-        [Pclass] INT NULL,
-        [Sex] NVARCHAR(50) NULL,
-        [Age] FLOAT NULL,
-        [SibSp] INT NULL,
-        [Parch] INT NULL,
-        [Fare] FLOAT NULL,
-        [Embarked] NVARCHAR(50) NULL,
-        [FamilySize] FLOAT NULL,
-        [IsAlone] INT NOT NULL,
-        [Title] NVARCHAR(50) NULL,
-        [Deck] NVARCHAR(10) NULL
-    );
+    EXEC(N'CREATE SCHEMA gold;');
 END;
 GO
+
+/* =============================================================================
+   2. VUE GOLD : DONNÉES D'ENTRAÎNEMENT
+============================================================================= */
+
+CREATE OR ALTER VIEW gold.vw_train
+AS
+SELECT
+    PassengerId AS PassengerID,
+    Survived    AS Survivant,
+    Pclass      AS Classe_Passager,
+    Name        AS Nom_Passager,
+    Sex         AS Sexe,
+    Age         AS Age,
+    SibSp       AS Frere_soeur_epoux_bord,
+    Parch       AS Parent_enfant_bord,
+    Ticket      AS Number_ticket,
+    Fare        AS Fare,
+    Cabin       AS Cabin,
+    Embarked    AS Port_enbarquement
+FROM silver.train;
+GO
+
+/* =============================================================================
+   3. TEST DE LA VUE
+============================================================================= */
+
+SELECT *
+FROM gold.vw_train;
+GO
+
