@@ -2,6 +2,8 @@
 
 Ce projet propose un parcours complet sur les données de la compétition Kaggle [Titanic — Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic) : import des CSV, stockage dans SQL Server selon l’architecture Medallion, préparation des données, entraînement et évaluation de modèles, puis génération d’un fichier de soumission.
 
+Pour exploiter les données dans Power BI, consultez le [guide Business Intelligence](./README_BUSINESS_INTELLIGENCE.md).
+
 ## État d’avancement
 
 Les trois notebooks du dossier `notebook/` couvrent l’importation et l’audit Bronze, la préparation Silver/Gold, puis le machine learning. L’exécution des étapes SQL nécessite une instance SQL Server configurée localement.
